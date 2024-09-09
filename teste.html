@@ -1,0 +1,80 @@
+<html>
+	<head>
+    <meta charset="utf-8" />
+		<title>Orçamento pessoal</title>
+    
+
+	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+
+    
+
+	</head>
+
+  <body>
+
+    
+
+    <div class="container"  >
+        <div style="background-color: rgb(108, 231, 108);" class="col-9 d-flex justify-content-center">
+        <div>
+          <h2 class="display-10">Verificador da sequencia de Fibonacci. <br> Escolha um número.</h2>
+            <br><br>
+      
+        <div class="col-md-4">
+          <input type="number" class="form-control"  id="numero" />
+          <br>
+          <button type="button" class="btn btn-primary" onclick="verificaNumero()">
+            <i>Enviar</i>
+          </button>
+          <p id="resposta"></p>
+        </div>
+    
+    </div>
+    </div>
+    </div>
+
+    <script>
+        function numeroEscolhido(numero){
+            if(numero<0){
+                return false;
+            }
+            if(numero === 0 || numero===1){
+                return true;
+            }
+
+            let x = 0, y = 1
+            while(y<numero){
+                [x,y]=[y,x+y]
+            }
+            return y === numero;
+        }
+        function verificaNumero(){
+            const num = document.getElementById('numero').value
+            const numInt = parseInt(num, 10)
+            const resposta = document.getElementById('resposta') 
+
+            if (numeroEscolhido(numInt)){
+                resposta.textContent=`O número ${numInt} faz parte do Fibonacci`
+            }
+            else{
+                resposta.textContent = `O numero ${numInt} não pertence a sequencia.` 
+            }
+        }
+
+
+
+    </script>
+        
+        
+        
+
+        
+  </body>	
+
+</html>
